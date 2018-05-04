@@ -7,34 +7,11 @@
 
 import Foundation
 
-// ErrorResponse Trait
-public protocol ErrorResponseSupport: RawRepresentable {
+// ErrorResponse Protocol
+public protocol ErrorResponseSupport {
   var statusCode: Int {get}
   var data: Data? {get}
   var error: Error {get}
-}
-
-extension ErrorResponseSupport where Self.RawValue == (Int, Data?, Error) {
-  public var statusCode: Int {
-    return rawValue.0
-  }
-  
-  public var data: Data? {
-    return rawValue.1
-  }
-  
-  public var error: Error {
-    return rawValue.2
-  }
-  
-  
-  public init?(rawValue: (Int, Data?, Error)) {
-    return nil
-  }
-  
-  public var rawValue: (Int, Data?, Error) {
-    return self.rawValue
-  }
 }
 
 // Response Trait
@@ -62,11 +39,14 @@ public protocol RequestBuilderHasProgress {
 // SwaggerClientAPI Trait
 public protocol SwaggerClientAPITokenCredential {
   static var customHeaders: [String:String] {get set}
+  /**
+   於 HTTP Header 中加入 Bearer Token，valueFormat 預設為 "%@"
+   */
   static func tokenCredential(key: String, value: String?, valueFormat: String)
 }
 
 extension SwaggerClientAPITokenCredential {
-  public static func tokenCredential(key: String, value: String?, valueFormat: String = "%s") {
+  public static func tokenCredential(key: String, value: String?, valueFormat: String = "%@") {
     guard let value = value else {
       customHeaders.removeValue(forKey: key)
       return

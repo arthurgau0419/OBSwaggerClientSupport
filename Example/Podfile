@@ -2,6 +2,7 @@ use_frameworks!
 target 'SwaggerClientSupport_Tests' do
   pod 'OBSwaggerClientSupport/Promise', :path => '../'
   pod 'OBSwaggerClientSupport/RxSwift', :path => '../'
+  pod 'OBSwaggerClientSupport/Accept-Language', :path => '../'
   
   # Replace this with your own SwaggerClient pod.
   pod 'SwaggerClient', :path => '/Users/ARTHUR/Downloads/swift4-client-generated'

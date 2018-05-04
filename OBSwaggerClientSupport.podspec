@@ -28,6 +28,10 @@ Pod::Spec.new do |s|
     ss.dependency 'RxSwift'
   end
 
+  s.subspec 'Accept-Language' do |ss|
+    ss.source_files = 'SwaggerClientSupport/Extensions/Accept-Language/Sources/*'
+  end
+
   s.default_subspecs = ['Core']
   s.swift_version = '4.1'
 end
