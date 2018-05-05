@@ -1,0 +1,11 @@
+use_frameworks!
+target 'SwaggerClientSupport_Tests' do
+  pod 'OBSwaggerClientSupport/Promise', :path => '../'
+  pod 'OBSwaggerClientSupport/RxSwift', :path => '../'
+  
+  # Replace this with your own SwaggerClient pod.
+  pod 'SwaggerClient', :path => '/Users/ARTHUR/Downloads/swift4-client-generated'
+  
+  pod 'Quick', '~> 1.2.0'
+  pod 'Nimble', '~> 7.0.2'
+end
