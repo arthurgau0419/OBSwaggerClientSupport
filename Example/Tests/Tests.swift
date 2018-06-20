@@ -10,30 +10,26 @@ class Demo: QuickSpec {
   
   let disposeBag = DisposeBag()
   
-  override func spec() {    
+  override func spec() {
+    
+    describe("i18n") {
+      it("Can Add Accept-Language Header") {
+        SwaggerClientAPI.internationalization(languageCode: "zh-TW")
+        expect(SwaggerClientAPI.customHeaders["Accept-Language"]).to(equal("zh-TW"))
+      }
+    }
     
     describe("Add Bearer Token in HttpHeader") {
-      // Add Bearer Token
-      SwaggerClientAPI.tokenCredential(key: "Authorization", value: "your_api_token", valueFormat: "Token %s")
-      let builder = DevicesAPI.getV2DevicesPhoneNumberRoomsWithRequestBuilder(phoneNumber: "123456")
-      builder.execute({ (response, error) in
-        if let errorResponse = error as? ErrorResponse {
-          // Helpful ErrorResponseSupport.
-          print(errorResponse.data ?? nil)
-          print(errorResponse.statusCode)
-          print(errorResponse.error)
-        } else {
-          print(error)
-        }
-        // Remove Bearer token
-        SwaggerClientAPI.tokenCredential(key: "Auth", value: nil)
-      })
+      it("Can Add Bearer Token") {
+        SwaggerClientAPI.tokenCredential(key: "Authorization", value: "your_api_token", valueFormat: "Token %s")
+        expect(SwaggerClientAPI.customHeaders["Authorization"]).to(equal(String.init(format: "Token %s", "your_api_token")))
+      }
     }
     
     describe("Promise") {
       it("Can Promise Response") {
         waitUntil(timeout: 10, action: { (done) in
-          DevicesAPI.getV2DevicesPhoneNumberRoomsWithRequestBuilder(phoneNumber: "123456").promise().done({ (r) in
+          PetAPI.findPetsByStatusWithRequestBuilder(status: ["sold"]).promise().done({ (r) in
             print(r)
             expect(r).notTo(beNil())
           }).catch({ (e) in
@@ -47,7 +43,7 @@ class Demo: QuickSpec {
     
     describe("Rxswift") {
       it("Can Rx Response") {
-        let builder = DevicesAPI.getV2DevicesPhoneNumberRoomsWithRequestBuilder(phoneNumber: "123456")
+        let builder = PetAPI.findPetsByStatusWithRequestBuilder(status: ["sold"])
                 
         builder.rx.progress.map {$0.fractionCompleted}.subscribe({ (event) in
           print(event)
@@ -56,8 +52,8 @@ class Demo: QuickSpec {
         waitUntil(timeout: 10, action: { (done) in
           builder.rx.body()
             .debug()
-            .subscribe(onSuccess: { (room) in
-              expect(room).notTo(beEmpty())
+            .subscribe(onSuccess: { (pets) in
+              expect(pets).notTo(beNil())
               done()
             }, onError: { (err) in
               fail(err.localizedDescription)

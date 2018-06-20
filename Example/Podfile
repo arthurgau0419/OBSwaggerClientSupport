@@ -5,7 +5,7 @@ target 'SwaggerClientSupport_Tests' do
   pod 'OBSwaggerClientSupport/Accept-Language', :path => '../'
   
   # Replace this with your own SwaggerClient pod.
-  pod 'SwaggerClient', :path => '/Users/ARTHUR/Downloads/swift4-client-generated'
+  pod 'SwaggerClient', :path => './swift4-client-generated'
   
   pod 'Quick', '~> 1.2.0'
   pod 'Nimble', '~> 7.0.2'

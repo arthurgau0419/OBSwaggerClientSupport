@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (4.5.1)
   - Nimble (7.0.3)
-  - OBSwaggerClientSupport/Accept-Language (0.1.1)
-  - OBSwaggerClientSupport/Core (0.1.1)
-  - OBSwaggerClientSupport/Promise (0.1.1):
+  - OBSwaggerClientSupport/Accept-Language (0.1.2)
+  - OBSwaggerClientSupport/Core (0.1.2)
+  - OBSwaggerClientSupport/Promise (0.1.2):
     - OBSwaggerClientSupport/Core
     - PromiseKit
-  - OBSwaggerClientSupport/RxSwift (0.1.1):
+  - OBSwaggerClientSupport/RxSwift (0.1.2):
     - OBSwaggerClientSupport/Core
     - RxSwift
   - PromiseKit (6.2.5):
@@ -29,7 +29,7 @@ DEPENDENCIES:
   - OBSwaggerClientSupport/Promise (from `../`)
   - OBSwaggerClientSupport/RxSwift (from `../`)
   - Quick (~> 1.2.0)
-  - SwaggerClient (from `/Users/ARTHUR/Downloads/swift4-client-generated`)
+  - SwaggerClient (from `./swift4-client-generated`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -43,17 +43,17 @@ EXTERNAL SOURCES:
   OBSwaggerClientSupport:
     :path: "../"
   SwaggerClient:
-    :path: "/Users/ARTHUR/Downloads/swift4-client-generated"
+    :path: "./swift4-client-generated"
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  OBSwaggerClientSupport: fe86442e394bf4aca88dd97a733fec3c09d2455c
+  OBSwaggerClientSupport: 6a2aef134a5008343c89ddc36f3115b6918bae5e
   PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxSwift: e49536837d9901277638493ea537394d4b55f570
-  SwaggerClient: 5c8ef76b50a9570bf3d9caed5da8d7232f8d0216
+  SwaggerClient: 9a37a4304aa21882f66c51fc5449b5a43d481aa2
 
-PODFILE CHECKSUM: bc7f01d6297dac116edc35df0eee5a127e992643
+PODFILE CHECKSUM: 16a58377b096f737d3ea9734461b8eb6c221a5c0
 
 COCOAPODS: 1.5.0

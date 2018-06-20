@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'OBSwaggerClientSupport'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A support module for Swagger Codegen client code.'
 
   s.homepage         = 'https://github.com/arthurgau0419/OBSwaggerClientSupport'
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/arthurgau0419/OBSwaggerClientSupport.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/Arthurgau'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.3'
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'SwaggerClientSupport/Sources/**/*'
