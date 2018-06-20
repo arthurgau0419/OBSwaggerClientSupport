@@ -26,6 +26,22 @@ class Demo: QuickSpec {
       }
     }
     
+    describe("Sync Request") {
+      it("Can Sync Request") {
+        waitUntil(timeout: 10, action: { (done) in
+          DispatchQueue.global().async {
+            do {
+              let response = try PetAPI.findPetsByStatusWithRequestBuilder(status: ["sold"]).executeSync()
+              expect(response).notTo(beNil())
+            } catch {
+              fail(error.localizedDescription)
+            }
+            done()
+          }
+        })
+      }
+    }
+    
     describe("Promise") {
       it("Can Promise Response") {
         waitUntil(timeout: 10, action: { (done) in
