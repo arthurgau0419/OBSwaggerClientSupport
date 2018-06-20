@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (4.5.1)
   - Nimble (7.0.3)
-  - OBSwaggerClientSupport/Accept-Language (0.1.0)
-  - OBSwaggerClientSupport/Core (0.1.0)
-  - OBSwaggerClientSupport/Promise (0.1.0):
+  - OBSwaggerClientSupport/Accept-Language (0.1.1)
+  - OBSwaggerClientSupport/Core (0.1.1)
+  - OBSwaggerClientSupport/Promise (0.1.1):
     - OBSwaggerClientSupport/Core
     - PromiseKit
-  - OBSwaggerClientSupport/RxSwift (0.1.0):
+  - OBSwaggerClientSupport/RxSwift (0.1.1):
     - OBSwaggerClientSupport/Core
     - RxSwift
   - PromiseKit (6.2.5):
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  OBSwaggerClientSupport: df2af068a79824ed7043cf6c8cb153e7e1ec4538
+  OBSwaggerClientSupport: fe86442e394bf4aca88dd97a733fec3c09d2455c
   PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxSwift: e49536837d9901277638493ea537394d4b55f570

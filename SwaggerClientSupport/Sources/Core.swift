@@ -27,9 +27,9 @@ public protocol RequestBuilderCanExecute {
 }
 
 extension RequestBuilderCanExecute {
-  func execute(_ completion: (_ response: R?, _ error: Error?) -> Void) {
-    self.execute(completion)
-  }
+//  func execute(_ completion: (_ response: R?, _ error: Error?) -> Void) {
+//    self.execute(completion)
+//  }
 }
 
 public protocol RequestBuilderHasProgress {
@@ -39,18 +39,43 @@ public protocol RequestBuilderHasProgress {
 // SwaggerClientAPI Trait
 public protocol SwaggerClientAPITokenCredential {
   static var customHeaders: [String:String] {get set}
-  /**
-   於 HTTP Header 中加入 Bearer Token，valueFormat 預設為 "%@"
-   */
   static func tokenCredential(key: String, value: String?, valueFormat: String)
 }
 
 extension SwaggerClientAPITokenCredential {
-  public static func tokenCredential(key: String, value: String?, valueFormat: String = "%@") {
+  /**
+   加入 Bearer Token 於 HTTP Headers 內
+   - parameter key: Key in Headers
+   - parameter value: value for key
+   - parameter valueFormat: value format using String.format method
+   */
+  public static func tokenCredential(key: String, value: String?, valueFormat: String = "%s") {
     guard let value = value else {
       customHeaders.removeValue(forKey: key)
       return
     }
     customHeaders.updateValue(String(format: valueFormat , value), forKey: key)
+  }
+}
+
+// Sync Request Trait
+extension RequestBuilderCanExecute {    
+  /**
+   使用同步方法呼叫
+   - Throws: ResponseError
+   - Warning: 不要在主線程中使用，會卡死
+   */
+  public func executeSync() throws -> Self.R? {
+    let semaphore = DispatchSemaphore(value: 0)
+    var r: Self.R?
+    var e: Error?
+    execute { (response, error) in
+      r = response
+      e = error
+      semaphore.signal()
+    }
+    semaphore.wait()
+    guard e == nil else { throw e! }
+    return r
   }
 }
