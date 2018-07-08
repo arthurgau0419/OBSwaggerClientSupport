@@ -1,9 +1,9 @@
 # OBSwaggerClientSupport
 
 [![CI Status](https://img.shields.io/travis/arthurgau0419@gmail.com/SwaggerClientSupport.svg?style=flat)](https://travis-ci.org/arthurgau0419@gmail.com/SwaggerClientSupport)
-[![Version](https://img.shields.io/cocoapods/v/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/SwaggerClientSupport)
-[![License](https://img.shields.io/cocoapods/l/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/SwaggerClientSupport)
-[![Platform](https://img.shields.io/cocoapods/p/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/SwaggerClientSupport)
+[![Version](https://img.shields.io/cocoapods/v/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/OBSwaggerClientSupport)
+[![License](https://img.shields.io/cocoapods/l/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/OBSwaggerClientSupport)
+[![Platform](https://img.shields.io/cocoapods/p/SwaggerClientSupport.svg?style=flat)](https://cocoapods.org/pods/OBSwaggerClientSupport)
 
 ## Example
 
